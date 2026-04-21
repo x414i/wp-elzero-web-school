@@ -8,16 +8,25 @@ function custom_theme_enqueue_styles() {
 // enqueue fontawesome
 
 wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/all.min.css');
-    }
+
+// Enqueue bootstrap
+wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
+
+}
 // Hook the function to the 'wp_enqueue_scripts' action
 add_action('wp_enqueue_scripts', 'custom_theme_enqueue_styles');
 
 
 //add scripts
 function custom_theme_enqueue_scripts() {
+
+// Enqueue the Bootstrap JavaScript file
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '1.0', true);    
     // Enqueue the custom JavaScript file
     wp_enqueue_script('custom-theme-custom-script', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0', true);
-}
+
+
+    }
 // Hook the function to the 'wp_enqueue_scripts' action
 add_action('wp_enqueue_scripts', 'custom_theme_enqueue_scripts');
 
@@ -38,5 +47,6 @@ function custom_theme_display_menu() {
         'container' => 'nav', // Wrap the menu in a <nav> element
         'container_class' => 'primary-menu', // Add a class to the container
         'menu_class' => 'menu', // Add a class to the <ul> element
-    ));
+        'menu_id' => 'primary-menu', // Add an ID to the <ul> element
+        ));
 }

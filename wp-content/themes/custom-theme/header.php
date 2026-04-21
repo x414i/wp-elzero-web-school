@@ -19,3 +19,4 @@
 </head>
 <body>
     <i class="fa-brands fa-affiliatetheme"></i>
+<?php custom_theme_display_menu(); // Display the navigation menu ?>

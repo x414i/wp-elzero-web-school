@@ -38,5 +38,6 @@ function custom_theme_display_menu() {
         'container' => 'nav', // Wrap the menu in a <nav> element
         'container_class' => 'primary-menu', // Add a class to the container
         'menu_class' => 'menu', // Add a class to the <ul> element
-    ));
+        'menu_id' => 'primary-menu', // Add an ID to the <ul> element
+        ));
 }

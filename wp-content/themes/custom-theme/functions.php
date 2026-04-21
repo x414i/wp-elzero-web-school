@@ -9,3 +9,9 @@ function custom_theme_enqueue_styles() {
 add_action('wp_enqueue_scripts', 'custom_theme_enqueue_styles');
 
 
+//add scripts
+function custom_theme_enqueue_scripts() {
+    // Enqueue the custom JavaScript file
+    wp_enqueue_script('custom-theme-custom-script', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'custom_theme_enqueue_scripts');

@@ -18,5 +18,20 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><?php bloginfo('name'); ?></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="main-menu">
+            <?php
+            // Display the navigation menu
+            custom_theme_display_menu();
+            ?>
+        </div>
+    </div>
+</nav>
     <i class="fa-brands fa-affiliatetheme"></i>
 <?php custom_theme_display_menu(); // Display the navigation menu ?>

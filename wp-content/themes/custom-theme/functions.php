@@ -31,6 +31,12 @@ function custom_theme_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'custom_theme_enqueue_scripts');
 
 
+
+
+
+require_once get_template_directory() . '/class-wp-bootstrap-nvawallker.php';
+
+
 // Register navigation menu
 function custom_theme_register_menus() {
     register_nav_menu(
@@ -43,10 +49,13 @@ add_action('init', 'custom_theme_register_menus');
 //Add menu to design
 function custom_theme_display_menu() {
     wp_nav_menu(array(
-        'theme_location' => 'primary-menu', // Use the registered menu location
-        'container' => 'nav', // Wrap the menu in a <nav> element
-        'container_class' => 'primary-menu', // Add a class to the container
-        'menu_class' => 'menu', // Add a class to the <ul> element
-        'menu_id' => 'primary-menu', // Add an ID to the <ul> element
+            'theme_location' => 'main-menu',
+            'container' => false,
+            'menu_class' => '',
+            'fallback_cb' => '__return_false',
+            'items_wrap' => '<ul id="%1$s" class="navbar-nav me-auto mb-2 mb-md-0 %2$s">%3$s</ul>',
+            'depth' => 2,
+            'walker' => new bootstrap_5_wp_nav_menu_walker()
+
         ));
 }
